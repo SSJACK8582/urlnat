@@ -1,6 +1,7 @@
 package service
 
 import (
+	"strconv"
 	"time"
 	"urlnat/global"
 	"urlnat/model"
@@ -21,6 +22,15 @@ func UpdateUrlNat(data model.UrlNat) int64 {
 func GetUrlNat(code string) model.UrlNat {
 	var data model.UrlNat
 	global.DB.Where("`code` = ?", code).First(&data)
+	return data
+}
+
+func GetUrlNatList(pages string, sizes string, query string) []model.UrlNat {
+	var data []model.UrlNat
+	page, _ := strconv.Atoi(pages)
+	size, _ := strconv.Atoi(sizes)
+	offset := (page - 1) * size
+	global.DB.Limit(size).Offset(offset).Where("`note` LIKE ?", "%"+query+"%").Find(&data)
 	return data
 }
 

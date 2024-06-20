@@ -12,6 +12,7 @@ func Router() *gin.Engine {
 	router.POST("/delete", controller.DeleteUrlNat)
 	router.POST("/update", controller.UpdateUrlNat)
 	router.GET("/code/*path", controller.GetUrlNat)
+	router.GET("/list", controller.GetUrlNatList)
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"code": 200, "msg": "start success"})
 	})

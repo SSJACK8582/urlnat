@@ -63,5 +63,11 @@ Content-Type: application/json
 - 查询
 
 ```
+GET /list?page=[]&size=[]&query=[]
+```
+
+- 查询
+
+```
 GET /code/<[]?[]=[]>
 ```
