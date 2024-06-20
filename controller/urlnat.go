@@ -111,5 +111,5 @@ func GetUrlNatList(ctx *gin.Context) {
 			Date: item.Date,
 		})
 	}
-	ctx.JSON(http.StatusOK, gin.H{"code": 200, "msg": "get success", "data": data})
+	ctx.JSON(http.StatusOK, gin.H{"code": 200, "msg": "get success", "data": list})
 }
